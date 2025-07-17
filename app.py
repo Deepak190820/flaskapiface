@@ -61,9 +61,10 @@ def analyze():
         hex_color = bgr_to_hex(dominant_color)
 
         return jsonify({
-            "dominant_bgr": dominant_color,
-            "dominant_hex": hex_color
-        })
+    "dominant_bgr": [int(c) for c in dominant_color],
+    "dominant_hex": hex_color
+})
+
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
